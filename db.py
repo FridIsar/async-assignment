@@ -15,6 +15,12 @@ class BufferDB:
             PRIMARY KEY (song, date)
             )''')
         self.con.commit()
+        
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.con.close()
 
     def add_plays_or_create_row(self, song: str, date: str, str_plays: str):
         plays = int(str_plays)
@@ -36,5 +42,3 @@ class BufferDB:
         # Read and write the data in chunks
         for chunk in pd.read_sql_query(query, self.con, chunksize=10000):
             chunk.to_csv(f_out, index=False, header=False)
-            
-        self.con.close()

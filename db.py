@@ -4,7 +4,7 @@ import pandas as pd
 
 class BufferDB:
     def __init__(self):
-        self.db_file = 'buffer.db'
+        self.db_file = 'data/buffer.db'
         self.con = sqlite3.connect(self.db_file)
         self.cur = self.con.cursor()
         self.cur.execute('DROP TABLE IF EXISTS buffer')

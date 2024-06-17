@@ -2,7 +2,7 @@ import pandas as pd
 import pathlib
 import os
 
-from csv_processing import group_plays_by_song_and_date_io
+from example.data_processing.csv_processing import group_plays_by_song_and_date_io
 
 def test_group_plays_by_song_and_date_io():
     # Define the paths for input and output files

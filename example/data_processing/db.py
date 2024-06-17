@@ -1,10 +1,11 @@
 import sqlite3
 import pandas as pd
+import os
 
 
 class BufferDB:
     def __init__(self):
-        self.db_file = 'data/buffer.db'
+        self.db_file = 'buffer.db'
         self.con = sqlite3.connect(self.db_file)
         self.cur = self.con.cursor()
         self.cur.execute('DROP TABLE IF EXISTS buffer')
@@ -20,6 +21,8 @@ class BufferDB:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        if os.path.exists(self.db_file):
+            os.remove(self.db_file)
         self.con.close()
 
     def add_plays_or_create_row(self, song: str, date: str, str_plays: str):

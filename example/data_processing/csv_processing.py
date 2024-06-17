@@ -1,7 +1,7 @@
 import typing
 import pathlib
 import csv
-from db import BufferDB
+from .db import BufferDB
 
 
 def group_plays_by_song_and_date(input_path: str, output_path: str):
@@ -23,7 +23,7 @@ def group_plays_by_song_and_date_io(f_in: typing.TextIO, f_out: typing.TextIO):
 
 
 def main():
-    group_plays_by_song_and_date("data/example_input.csv", "data/example_output.csv")
+    group_plays_by_song_and_date("data/csv/example_input.csv", "data/csv/example_output.csv")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,44 @@
+{% extends "layouts/index.html" %}
+
+{% block title %}Large CSV file asynchronous processing{% endblock %}
+
+{% block body %}
+
+{% if message %}
+<p class="text-center text-lg mt-4 text-gray-500">
+  ⚙️ {{ message }}
+</p>
+{% endif %}
+
+{% if result_status %}
+  {% if result_status["successful"] and result_status["ready"] %}
+  <p class="text-center text-lg mt-4 text-green-500">
+    🎼 The file has been successfully processed and is ready to see at {{ result_status["value"] }}.
+  {% endif %}
+  {% if result_status["ready"] and not result_status["successful"] %}
+  <p class="text-center text-lg mt-4 text-red-500">
+    ❌ The file processing failed. We have been notified and we will get back to you asap.
+  {% endif %}
+  {% if not result_status["ready"] %}
+  <p class="text-center text-lg mt-4 text-yellow-500">
+    ⏳ The file is being processed, please wait.
+  {% endif %}
+</p>
+{% endif %}
+  <h1 class="text-center text-2xl mt-4">Large CSV file asynchronous processing</h1>
+  <p class="text-center text-lg mt-4">
+   🧑‍💻 Enter the name of the input and output CSV files:
+  </p>
+  <form action="{{ url_for('page.schedule') }}" method="post" class="flex justify-center mt-4">
+    <input type="text" name="input_file" placeholder="Input CSV file" class="p-2 border border-gray-300 rounded-md" required>
+    <input type="text" name="output_file" placeholder="Output CSV file" class="p-2 border border-gray-300 rounded-md" required>
+    <button type="submit" class="p-2 bg-blue-500 text-white rounded-md ml-2">Submit</button>
+  </form>
+  <p class="text-center text-lg mt-4">
+    🤖 Enter the ID of the file you want to download:
+   </p>
+   <form action="{{ url_for('page.download') }}" method="get" class="flex justify-center mt-4">
+     <input value="{{ id }}" type="text" name="process_id" placeholder="Process ID" class="p-2 border border-gray-300 rounded-md" required>
+     <button type="submit" class="p-2 bg-blue-500 text-white rounded-md ml-2">Retrieve file</button>
+   </form>
+{% endblock %}

@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "project",
   "private": true,
   "dependencies": {
     "autoprefixer": "10.4.19",

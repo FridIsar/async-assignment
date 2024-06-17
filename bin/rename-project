@@ -5,12 +5,12 @@ set -eo pipefail
 APP_NAME="${1}"
 MODULE_NAME="${2}"
 
-FIND_APP_NAME="example"
-FIND_MODULE_NAME="Example"
+FIND_APP_NAME="project"
+FIND_MODULE_NAME="Project"
 FIND_FRAMEWORK="flask"
 
 if [ -z "${APP_NAME}" ] || [ -z "${MODULE_NAME}" ]; then
-    echo "You must supply both an app and module name, example: ${0} myapp MyApp"
+    echo "You must supply both an app and module name, project: ${0} myapp MyApp"
     exit 1
 fi
 
@@ -96,5 +96,5 @@ script as many times as you want until you're happy.
 
 Check out the rest of the README on GitHub to wrap things up:
 
-https://github.com/nickjj/docker-${FIND_FRAMEWORK}-example#start-and-setup-the-project
+https://github.com/nickjj/docker-${FIND_FRAMEWORK}-project#start-and-setup-the-project
 EOF

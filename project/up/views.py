@@ -1,8 +1,8 @@
 from flask import Blueprint
 from sqlalchemy import text
 
-from example.extensions import db
-from example.initializers import redis
+from project.extensions import db
+from project.initializers import redis
 
 up = Blueprint("up", __name__, template_folder="templates", url_prefix="/up")
 

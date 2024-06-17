@@ -29,16 +29,16 @@ If you're using Windows, it will be expected that you're inside of WSL or WSL 2.
 #### Clone this repo anywhere you want and move into the directory:
 
 ```sh
-git clone https://github.com/fridisar/docker-flask-example example
-cd example
+git clone https://github.com/fridisar/docker-flask-project project
+cd project
 
 # Optionally checkout a specific tag, such as: git checkout 0.11.0
 ```
 
-#### Copy an example .env file because the real one is git ignored:
+#### Copy an project .env file because the real one is git ignored:
 
 ```sh
-cp .env.example .env
+cp .env.project .env
 ```
 
 #### Build everything:
@@ -135,9 +135,9 @@ with this project.
 
 ## Running a script to automate renaming the project
 
-The app is named `example` right now but chances are your app will be a different
+The app is named `project` right now but chances are your app will be a different
 name. Since the app is already created we'll need to do a find / replace on a
-few variants of the string "example" and update a few Docker related resources.
+few variants of the string "project" and update a few Docker related resources.
 
 And by we I mean I created a zero dependency shell script that does all of the
 heavy lifting for you. All you have to do is run the script below.
@@ -164,7 +164,7 @@ heavy lifting for you. All you have to do is run the script below.
 - **Flask defaults that are changed**:
     - `public/` is the static directory where Flask will serve static files from
     - `static_url_path` is set to `""` to remove the `/static` URL prefix for static files
-    - `ProxyFix` middleware is enabled (check `example/app.py`)
+    - `ProxyFix` middleware is enabled (check `project/app.py`)
 
 #### Run the rename-project script included in this repo:
 
@@ -174,13 +174,13 @@ heavy lifting for you. All you have to do is run the script below.
 # The first one is the lower case version of your app's name, such as myapp or
 # my_app depending on your preference.
 #
-# The second one is used for your app's module name. For example if you used
+# The second one is used for your app's module name. For project if you used
 # myapp or my_app for the first argument you would want to use MyApp here.
 bin/rename-project myapp MyApp
 ```
 
 The [bin/rename-project
-script](https://github.com/nickjj/docker-flask-example/blob/main/bin/rename-project)
+script](https://github.com/nickjj/docker-flask-project/blob/main/bin/rename-project)
 is going to:
 
 - Remove any Docker resources for your current project
@@ -193,7 +193,7 @@ project generator tools or 3rd party dependencies.*
 
 If you're not comfy running the script or it doesn't work for whatever reasons
 you can [check it
-out](https://github.com/nickjj/docker-flask-example/blob/main/bin/rename-project)
+out](https://github.com/nickjj/docker-flask-project/blob/main/bin/rename-project)
 and perform the actions manually. It's mostly running a find / replace across
 files and then renaming a few directories and files.
 

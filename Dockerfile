@@ -1,5 +1,5 @@
 FROM node:20.6.1-bookworm-slim AS assets
-LABEL maintainer="Nick Janetakis <nick.janetakis@gmail.com>"
+LABEL maintainer="Isar Fridriksson <isarfridriksson@gmail.com>"
 
 WORKDIR /app/assets
 
@@ -34,7 +34,7 @@ CMD ["bash"]
 ###############################################################################
 
 FROM python:3.12.3-slim-bookworm AS app
-LABEL maintainer="Nick Janetakis <nick.janetakis@gmail.com>"
+LABEL maintainer="Isar Fridriksson <isarfridriksson@gmail.com>"
 
 WORKDIR /app
 
@@ -58,7 +58,7 @@ RUN chmod 0755 bin/* && bin/pip3-install
 
 ARG FLASK_DEBUG="false"
 ENV FLASK_DEBUG="${FLASK_DEBUG}" \
-    FLASK_APP="example.app" \
+    FLASK_APP="project.app" \
     FLASK_SKIP_DOTENV="true" \
     PYTHONUNBUFFERED="true" \
     PYTHONPATH="." \
@@ -75,4 +75,4 @@ ENTRYPOINT ["/app/bin/docker-entrypoint-web"]
 
 EXPOSE 8000
 
-CMD ["gunicorn", "-c", "python:config.gunicorn", "example.app:create_app()"]
+CMD ["gunicorn", "-c", "python:config.gunicorn", "project.app:create_app()"]

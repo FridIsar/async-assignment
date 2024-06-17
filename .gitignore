@@ -3,11 +3,17 @@
 
 ### App #######################################################################
 
+*.buffer*
+buffer*
+very_large_output.csv
+project/data_processing/data/csv/project_input.csv
+project/data_processing/data/csv/project_output.csv
+
 public/*
 !public/.keep
 
 .env*
-!.env.example
+!.env.project
 docker-compose.override.yml
 
 

@@ -1,8 +1,8 @@
 import pytest
 
 from config import settings
-from example.app import create_app
-from example.extensions import db as _db
+from project.app import create_app
+from project.extensions import db as _db
 
 
 @pytest.fixture(scope="session")

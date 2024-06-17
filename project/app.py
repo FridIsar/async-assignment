@@ -4,11 +4,11 @@ from flask import Flask
 from werkzeug.debug import DebuggedApplication
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-from example.extensions import db
-from example.extensions import debug_toolbar
-from example.extensions import flask_static_digest
-from example.page.views import page
-from example.up.views import up
+from project.extensions import db
+from project.extensions import debug_toolbar
+from project.extensions import flask_static_digest
+from project.page.views import page
+from project.up.views import up
 
 
 def create_celery_app(app=None):

@@ -4,12 +4,12 @@ import csv
 from db import BufferDB
 
 
-def process_files(input_path: str, output_path: str):
+def group_plays_by_song_and_date(input_path: str, output_path: str):
     with open(pathlib.Path(input_path), "r") as f_in, open(pathlib.Path(output_path), "w") as f_out:
-        group_plays_by_song_and_date(f_in, f_out)
+        group_plays_by_song_and_date_io(f_in, f_out)
 
 
-def group_plays_by_song_and_date(f_in: typing.TextIO, f_out: typing.TextIO):
+def group_plays_by_song_and_date_io(f_in: typing.TextIO, f_out: typing.TextIO):
     reader = csv.DictReader(f_in)
     
     with BufferDB() as buffer:
@@ -23,7 +23,7 @@ def group_plays_by_song_and_date(f_in: typing.TextIO, f_out: typing.TextIO):
 
 
 def main():
-    process_files("data/example_input.csv", "data/example_output.csv")
+    group_plays_by_song_and_date("data/example_input.csv", "data/example_output.csv")
 
 
 if __name__ == "__main__":

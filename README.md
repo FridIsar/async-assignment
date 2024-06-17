@@ -64,7 +64,7 @@ Linux and your `uid:gid` aren't `1000:1000` (you can verify this by running
 `id`). Check out the docs in the `.env` file to customize the `UID` and `GID`
 variables to fix this.
 
-#### Check it out in a browser:
+### Check it out in a browser:
 
 Visit <http://localhost:8000> in your favorite browser.
 
@@ -79,6 +79,8 @@ Visit <http://localhost:8000> in your favorite browser.
 
 * In the main page on <http://localhost:8000>, after submitting any existing input file you'll get a task ID (ex: `75499481-c54f-4ab5-a591-75d935e1e764`). You will see the ID at the top and it will be automatically inserted in the ID field below.
 * Click on retrieve file to get retrieval status.
+
+### Maintenance:
 
 #### Linting the code base:
 
